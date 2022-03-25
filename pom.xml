@@ -18,6 +18,7 @@
     <modules>
         <module>passport_service</module>
         <module>passport_client_service</module>
+        <module>mail_service</module>
     </modules>
 
     <properties>
