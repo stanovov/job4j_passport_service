@@ -1,4 +1,4 @@
-package ru.job4j.mail_service.gson.adapter;
+package ru.job4j.mailservice.gson.adapter;
 
 import com.google.gson.*;
 

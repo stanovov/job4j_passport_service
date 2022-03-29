@@ -1,14 +1,14 @@
-package ru.job4j.mail_service.service;
+package ru.job4j.mailservice.service;
 
+import model.dto.PassportDTO;
 import org.springframework.stereotype.Service;
-import ru.job4j.mail_service.model.Passport;
 
 import java.util.List;
 
 @Service
 public class DummyEmailServiceImpl implements EmailService {
     @Override
-    public void sendExpiredPassportsByEmail(List<Passport> passports) {
+    public void sendExpiredPassportsByEmail(List<PassportDTO> passports) {
         passports.forEach(System.out::println);
     }
 }

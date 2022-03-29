@@ -1,4 +1,4 @@
-package ru.job4j.mail_service.config;
+package ru.job4j.mailservice.config;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.IntegerDeserializer;

@@ -1,13 +1,13 @@
-package ru.job4j.mail_service.controller.kafka;
+package ru.job4j.mailservice.controller.kafka;
 
 import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
+import model.dto.PassportDTO;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
-import ru.job4j.mail_service.gson.typetoken.PassportTypeToken;
-import ru.job4j.mail_service.model.Passport;
-import ru.job4j.mail_service.service.EmailService;
+import ru.job4j.mailservice.gson.typetoken.PassportTypeToken;
+import ru.job4j.mailservice.service.EmailService;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class MailKafkaController {
 
     @KafkaListener(topics = {"expiredPassports"})
     public void listenExpiredPassports(ConsumerRecord<Integer, String> input) {
-        List<Passport> passports = gson.fromJson(input.value(), new PassportTypeToken().getType());
+        List<PassportDTO> passports = gson.fromJson(input.value(), new PassportTypeToken().getType());
         emailService.sendExpiredPassportsByEmail(passports);
     }
 

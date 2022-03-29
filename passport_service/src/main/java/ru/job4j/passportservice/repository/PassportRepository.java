@@ -2,7 +2,7 @@ package ru.job4j.passportservice.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import ru.job4j.passportservice.model.Passport;
+import ru.job4j.passportservice.model.entity.Passport;
 
 import java.time.LocalDate;
 import java.util.List;

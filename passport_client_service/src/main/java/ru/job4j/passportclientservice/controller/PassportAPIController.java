@@ -2,11 +2,11 @@ package ru.job4j.passportclientservice.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import model.dto.PassportDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.job4j.passportclientservice.model.Passport;
 import ru.job4j.passportclientservice.service.PassportService;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public class PassportAPIController {
     private final PassportService passportService;
 
     @GetMapping("/find")
-    public ResponseEntity<List<Passport>> findAll() {
+    public ResponseEntity<List<PassportDTO>> findAll() {
         return new ResponseEntity<>(
                 passportService.findAll(),
                 HttpStatus.OK
@@ -28,7 +28,7 @@ public class PassportAPIController {
     }
 
     @GetMapping("/find-by-series")
-    public ResponseEntity<List<Passport>> findBySeries(@RequestParam Integer series) {
+    public ResponseEntity<List<PassportDTO>> findBySeries(@RequestParam Integer series) {
         return new ResponseEntity<>(
                 passportService.findBySeries(series),
                 HttpStatus.OK
@@ -36,7 +36,7 @@ public class PassportAPIController {
     }
 
     @GetMapping("/find-expired")
-    public ResponseEntity<List<Passport>> findExpired() {
+    public ResponseEntity<List<PassportDTO>> findExpired() {
         return new ResponseEntity<>(
                 passportService.findExpired(),
                 HttpStatus.OK
@@ -44,7 +44,7 @@ public class PassportAPIController {
     }
 
     @GetMapping("/find-replaceable")
-    public ResponseEntity<List<Passport>> findReplaceable() {
+    public ResponseEntity<List<PassportDTO>> findReplaceable() {
         return new ResponseEntity<>(
                 passportService.findReplaceable(),
                 HttpStatus.OK
@@ -52,14 +52,14 @@ public class PassportAPIController {
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<Passport> findById(@PathVariable Integer id) {
+    public ResponseEntity<PassportDTO> findById(@PathVariable Integer id) {
         return ResponseEntity.status(HttpStatus.OK)
                     .contentType(MediaType.APPLICATION_JSON)
                     .body(passportService.findById(id));
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Passport> create(@RequestBody Passport passport) {
+    public ResponseEntity<PassportDTO> create(@RequestBody PassportDTO passport) {
         return new ResponseEntity<>(
                 passportService.save(passport),
                 HttpStatus.CREATED
@@ -67,7 +67,7 @@ public class PassportAPIController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Void> update(@RequestBody Passport passport) {
+    public ResponseEntity<Void> update(@RequestBody PassportDTO passport) {
         passportService.update(passport);
         return ResponseEntity.ok().build();
     }

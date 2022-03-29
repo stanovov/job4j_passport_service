@@ -1,12 +1,12 @@
 package ru.job4j.passportclientservice.service;
 
 import lombok.RequiredArgsConstructor;
+import model.dto.PassportDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import ru.job4j.passportclientservice.model.Passport;
 
 import java.util.List;
 
@@ -20,43 +20,43 @@ public class PassportServiceImpl implements PassportService {
     private final RestTemplate restTemplate;
 
     @Override
-    public List<Passport> findAll() {
+    public List<PassportDTO> findAll() {
         return findPassports(
                 String.format("%s/find", url));
     }
 
     @Override
-    public List<Passport> findBySeries(Integer series) {
+    public List<PassportDTO> findBySeries(Integer series) {
         return findPassports(
                 String.format("%s/find-by-series?series=%d", url, series));
     }
 
     @Override
-    public List<Passport> findExpired() {
+    public List<PassportDTO> findExpired() {
         return findPassports(
                 String.format("%s/find-expired", url));
     }
 
     @Override
-    public List<Passport> findReplaceable() {
+    public List<PassportDTO> findReplaceable() {
         return findPassports(
                 String.format("%s/find-replaceable", url));
     }
 
     @Override
-    public Passport findById(Integer id) {
+    public PassportDTO findById(Integer id) {
         return restTemplate.getForObject(
-                String.format("%s/find/{id}", url), Passport.class, id);
+                String.format("%s/find/{id}", url), PassportDTO.class, id);
     }
 
     @Override
-    public Passport save(Passport passport) {
-        return restTemplate.postForObject(url, passport, Passport.class);
+    public PassportDTO save(PassportDTO dto) {
+        return restTemplate.postForObject(url, dto, PassportDTO.class);
     }
 
     @Override
-    public void update(Passport passport) {
-        restTemplate.put(url, passport);
+    public void update(PassportDTO dto) {
+        restTemplate.put(url, dto);
     }
 
     @Override
@@ -65,12 +65,12 @@ public class PassportServiceImpl implements PassportService {
                 String.format("%s/{id}", url), id);
     }
 
-    private List<Passport> findPassports(String specificUrl) {
+    private List<PassportDTO> findPassports(String specificUrl) {
         return restTemplate.exchange(
                 specificUrl,
                 HttpMethod.GET,
                 null,
-                new ParameterizedTypeReference<List<Passport>>() { }
+                new ParameterizedTypeReference<List<PassportDTO>>() { }
         ).getBody();
     }
 }

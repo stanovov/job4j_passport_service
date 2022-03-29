@@ -1,24 +1,24 @@
 package ru.job4j.passportclientservice.service;
 
-import ru.job4j.passportclientservice.model.Passport;
+import model.dto.PassportDTO;
 
 import java.util.List;
 
 public interface PassportService {
 
-    List<Passport> findAll();
+    List<PassportDTO> findAll();
 
-    List<Passport> findBySeries(Integer series);
+    List<PassportDTO> findBySeries(Integer series);
 
-    List<Passport> findExpired();
+    List<PassportDTO> findExpired();
 
-    List<Passport> findReplaceable();
+    List<PassportDTO> findReplaceable();
 
-    Passport findById(Integer id);
+    PassportDTO findById(Integer id);
 
-    Passport save(Passport passport);
+    PassportDTO save(PassportDTO dto);
 
-    void update(Passport passport);
+    void update(PassportDTO dto);
 
     void deleteById(Integer id);
 
