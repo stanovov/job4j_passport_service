@@ -1,6 +1,6 @@
 package ru.job4j.passportservice.service;
 
-import model.dto.PassportDTO;
+import ru.job4j.model.dto.PassportDTO;
 
 import java.util.List;
 import java.util.Optional;

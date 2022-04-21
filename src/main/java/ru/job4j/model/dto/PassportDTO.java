@@ -1,14 +1,18 @@
-package model.dto;
+package ru.job4j.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import validation.Operation;
+import lombok.NoArgsConstructor;
+import ru.job4j.validation.Operation;
 
 import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class PassportDTO {
 
@@ -37,4 +41,6 @@ public class PassportDTO {
     @JsonFormat(pattern = "dd-MM-yyyy")
     @NotNull(message = "Validity must be not empty")
     private LocalDate validity;
+
+    private String email;
 }

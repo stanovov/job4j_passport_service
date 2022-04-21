@@ -2,7 +2,7 @@ package ru.job4j.passportservice.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import model.dto.PassportDTO;
+import ru.job4j.model.dto.PassportDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import ru.job4j.passportservice.service.PassportService;
-import validation.Operation;
+import ru.job4j.validation.Operation;
 
 import javax.validation.Valid;
 import java.util.List;

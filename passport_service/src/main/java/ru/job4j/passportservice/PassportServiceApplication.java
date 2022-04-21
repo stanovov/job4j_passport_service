@@ -2,18 +2,21 @@ package ru.job4j.passportservice;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import ru.job4j.gson.adapter.LocalDateDeserializerAdapter;
+import ru.job4j.gson.adapter.LocalDateSerializerAdapter;
 import liquibase.integration.spring.SpringLiquibase;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import ru.job4j.passportservice.gson.adapter.LocalDateSerializerAdapter;
 
 import javax.sql.DataSource;
 import java.time.LocalDate;
 
 @EnableScheduling
 @SpringBootApplication
+@EnableTransactionManagement
 public class PassportServiceApplication {
 
     @Bean
@@ -29,6 +32,7 @@ public class PassportServiceApplication {
         return new GsonBuilder()
                 .setPrettyPrinting()
                 .registerTypeAdapter(LocalDate.class, new LocalDateSerializerAdapter())
+                .registerTypeAdapter(LocalDate.class, new LocalDateDeserializerAdapter())
                 .create();
     }
 

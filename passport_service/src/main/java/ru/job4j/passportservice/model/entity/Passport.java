@@ -41,4 +41,8 @@ public class Passport {
 
     @Column(name = "validity", nullable = false)
     private LocalDate validity;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "email_id", referencedColumnName = "id")
+    private Email email;
 }

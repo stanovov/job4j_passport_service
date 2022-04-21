@@ -2,7 +2,7 @@ package ru.job4j.passportclientservice.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import model.dto.PassportDTO;
+import ru.job4j.model.dto.PassportDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
