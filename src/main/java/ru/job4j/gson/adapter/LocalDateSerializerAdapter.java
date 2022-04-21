@@ -1,4 +1,4 @@
-package ru.job4j.passportservice.gson.adapter;
+package ru.job4j.gson.adapter;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;

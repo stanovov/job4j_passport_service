@@ -1,7 +1,7 @@
 package ru.job4j.passportservice.service;
 
 import lombok.RequiredArgsConstructor;
-import model.dto.PassportDTO;
+import ru.job4j.model.dto.PassportDTO;
 import org.springframework.stereotype.Service;
 import ru.job4j.passportservice.handler.PassportNumberAndSeriesAlreadyExist;
 import ru.job4j.passportservice.mapper.PassportMapper;

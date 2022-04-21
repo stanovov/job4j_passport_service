@@ -1,6 +1,6 @@
 package ru.job4j.mailservice.service;
 
-import model.dto.PassportDTO;
+import ru.job4j.model.dto.PassportDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

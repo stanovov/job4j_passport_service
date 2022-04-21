@@ -1,7 +1,7 @@
 package ru.job4j.passportclientservice.service;
 
 import lombok.RequiredArgsConstructor;
-import model.dto.PassportDTO;
+import ru.job4j.model.dto.PassportDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;

@@ -1,4 +1,4 @@
-package validation;
+package ru.job4j.validation;
 
 public interface Operation {
 

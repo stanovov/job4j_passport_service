@@ -21,7 +21,7 @@
 
 ## Технологии
 
-+ **Java 17**, **Spring Boot**;
++ **Java 17**, **Spring Boot**, **Kafka**;
 + **PostgreSQL**, **Liquibase**;
 + Сборщик проектов **Maven**;
 + Инструмент для анализа стиля кода - **Checkstyle**;
